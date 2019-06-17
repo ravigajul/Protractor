@@ -1,7 +1,7 @@
 var Jasmine2HtmlReporter = require('protractor-jasmine2-html-reporter');
 exports.config = {
 		seleniumAddress: 'http://localhost:4444/wd/hub',
-		specs: ['ResolvePromiseToPrintInnerText.js'],
+		specs: ['Actions.js'],
 		capabilities: {
 		    browserName: 'chrome'
 		  },
@@ -9,6 +9,8 @@ exports.config = {
 			    browserName: 'firefox'
 			  }, {
 			    browserName: 'chrome'
+			  }, {
+			    browserName: 'internet explorer'
 			  }],*/
 		  
 //This is for Jasmine Html reporter

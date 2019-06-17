@@ -1,7 +1,7 @@
 
 //Promise Resolution
 
-describe('Protractor Demo App', function() {
+describe('Resolve a Promise Demo', function() {
   it('should add one and two', function() {
     browser.get('http://juliemr.github.io/protractor-demo/');
     element(by.model('first')).sendKeys(1);
@@ -18,7 +18,13 @@ describe('Protractor Demo App', function() {
     		{
 		console.log("The value returned from getText() is " + text);
 	})
-    expect(element(by.binding('latest')).getText()).
+	
+	/*jasmine takes care of promise resolve there fore no 
+	explicit promise resolution is required for the below satement
+    .toBe is a jasmine assertion
+    */
+	
+	expect(element(by.binding('latest')).getText()).
         toEqual('3'); // This is wrong!
   });
 });
