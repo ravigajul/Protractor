@@ -2,17 +2,18 @@
 
 describe('Page Object Model Demo', function() {
 	var calciHome=require("../DataFiles/CalculatorHome.js");
+	var testdata=require("../DataFiles/TestData.js");
 	beforeEach(function() {
 		console.log("Before Each");
 		calciHome.goToHomePage();
 	});
   it('should add one and two', function() {
     console.log("Running the test");
-    calciHome.firstInput.sendKeys("1");
-    calciHome.secondInput.sendKeys("2");
+    calciHome.firstInput.sendKeys(testdata.datadriver.firstValue);
+    calciHome.secondInput.sendKeys(testdata.datadriver.secondValue);
     calciHome.goButton.click();
     expect(element(by.binding('latest')).getText()).
-        toEqual('3'); // This is wrong!
+        toEqual(testdata.datadriver.result); // This is wrong!
   });
 	afterEach(function() {
 		console.log("after Each:");

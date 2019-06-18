@@ -167,3 +167,40 @@ Module.export = new car(); //making this availble in another call
 Require("./<<filename where above class  is present>>") //this is like import statement in java
 Example
 Var obj=require("ClassCar.js");
+
+
+OnPrepare Function
+
+This has to be created in config file and all statements in this function will be executed first before any line of code in spec files is executed. This is a global setting like before Each. BeforeEach is specific to a specfile, while onprepare is globally applicable to all spec files.
+
+Common statement that can be used are 
+Reporting related -Jasmine-2-htmlreporter
+waitForAngularEnabled(false);
+Launching and maximizing the browser() , etc.
+
+Package.json 
+
+This is like POM.xml which downloads the dependencies from maven.
+Package.json downloads the dependencies from npm (node package manager)
+
+Go to project location and type below command for initialization package.json with default values.
+
+npm init -f 
+
+Add the below dependency  to package.json and while in the project location run the command "npm install"
+Or right click on run as npm install
+"dependencies":{
+  	"protractor": "5.4.2"
+  },
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webdriver-update":"./node_modules/.bin/webdriver-manager update",
+    "webdriver-start":"./node_modules/.bin/webdriver-manager start",
+    "Runconfig":"./node-modules/.bin/protractor ./ConfigFiles/config.js",
+    "UpdateAndStartWebdriverManager": "npm run webdriver-update && npm run webdriver-start "
+  }
+
+
+Update the testrunner configuration to repoint to new cli.js as per the new download.
+Under package.json you will see above test scripts. 
+To run the config.js right click on RunConfig and RunAsConfiguration and select protractorRunner and run.
