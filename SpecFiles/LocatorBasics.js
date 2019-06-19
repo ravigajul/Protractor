@@ -1,7 +1,7 @@
 //Locator Basics
 describe('Locator Basics', function() {
   it('should add one and two', function() {
-  /*  browser.get('http://juliemr.github.io/protractor-demo/');
+    browser.get('http://juliemr.github.io/protractor-demo/');
     
     //By Model
     element(by.model('first')).sendKeys(1);
@@ -10,8 +10,8 @@ describe('Locator Basics', function() {
     //By Id
     element(by.id('gobutton')).click();
     expect(element(by.binding('latest')).getText()).
-        toEqual('5'); // This is wrong!
-*/    
+        toEqual('3'); 
+    
     //By Css
     browser.get('https://material.angular.io/components/autocomplete/overview');
     element(by.css('#mat-input-0')).sendKeys('one').then(function() {

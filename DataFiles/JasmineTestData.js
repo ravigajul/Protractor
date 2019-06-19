@@ -1,0 +1,24 @@
+module.exports=
+	{
+	DataDriver:
+	{
+		FirstSet:
+			{
+				"firstvalue":"1",
+				"secondvalue":"2",
+				"result":"3"
+			},
+			SecondSet:
+			{
+				"firstvalue":"3",
+				"secondvalue":"4",
+				"result":"7"
+			},
+			ThirdSet:
+			{
+				"firstvalue":"5",
+				"secondvalue":"6",
+				"result":"11"
+			}
+	}
+}
