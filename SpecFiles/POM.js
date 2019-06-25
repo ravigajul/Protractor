@@ -10,13 +10,15 @@ describe('Page Object Model Demo', function() {
     console.log("Running the test");
     calciHome.firstInput.sendKeys("1");
     calciHome.secondInput.sendKeys("2");
-    calciHome.goButton.click();
-    expect(element(by.binding('latest')).getText()).
-        toEqual("3"); // This is wrong!
+    calciHome.goButton.click().then(function() {
+    	browser.sleep(2000);
+    	 expect(element(by.binding('latest')).getText()).
+         toEqual("3"); // This is wrong!
+    });
+   
   });
 	afterEach(function() {
 		console.log("after Each:");
-		browser.quit();
 	});
 });
 

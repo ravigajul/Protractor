@@ -8,9 +8,14 @@ describe('Locator Basics', function() {
     element(by.model('second')).sendKeys(2);
     
     //By Id
-    element(by.id('gobutton')).click();
-    expect(element(by.binding('latest')).getText()).
+    element(by.id('gobutton')).click().then(function() {
+    	
+    	browser.sleep(2000);
+    	expect(element(by.binding('latest')).getText()).
         toEqual('3'); 
+    	
+    });
+    
     
     //By Css
     browser.get('https://material.angular.io/components/autocomplete/overview');

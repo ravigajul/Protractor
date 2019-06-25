@@ -6,19 +6,27 @@
 	    element(by.model('first')).sendKeys(1);
 	    element(by.model('second')).sendKeys(2);
 	    // element(by.model('operator')).sendKeys(('*'));
-	    element(by.id('gobutton')).click();
-
-	    expect(element(by.binding('latest')).getText()).
+	    element(by.id('gobutton')).click().then(function() {
+	    	browser.sleep(2000);
+	    	expect(element(by.binding('latest')).getText()).
 	        toEqual('3'); // This is wrong!
+	    	
+	    });
+
+	    
 	    
 	    // adding another row to history
 	    element(by.model('first')).sendKeys(5);
 	    element(by.model('second')).sendKeys(5);
-	    element(by.id('gobutton')).click();
+	    element(by.id('gobutton')).click().then(function() {
+	    	browser.sleep(2000);
+	    	  expect(element(by.binding('latest')).getText()).
+		        toEqual('10'); // This is wrong!
+		    
+	    	
+	    });
 
-	    expect(element(by.binding('latest')).getText()).
-	        toEqual('10'); // This is wrong!
-	    
+	  
 	    
 		    // Parsing through first Row to get second and third column values
 		 expect(element.all(by.repeater('result in memory')).get(0).element(by.css('td:nth-of-type(2)')).getText()).toBe('5 + 5');

@@ -11,9 +11,12 @@ describe('Dataprovider Demo', function() {
 			    calciHome.goToHomePage();
 			    calciHome.firstInput.sendKeys(data.firstvalue);
 			    calciHome.secondInput.sendKeys(data.secondvalue);
-			    calciHome.goButton.click();
-			    expect(element(by.binding('latest')).getText()).
-			        toEqual(data.result); 
+			    calciHome.goButton.click().then(function() {
+			    	browser.sleep(2000);
+			    	 expect(element(by.binding('latest')).getText()).
+				        toEqual(data.result); 
+			    });
+			   
 			  });
 	});
 });

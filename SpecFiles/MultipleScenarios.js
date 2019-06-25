@@ -18,14 +18,18 @@ describe('Multiple Scenarios Demo App', function() {
 	    firstNumber.sendKeys(1);
 	    secondNumber.sendKeys(2);
 
-	    goButton.click();
+	    goButton.click().then(function() {
+	    	browser.sleep(2000);
+	    	expect(latestResult.getText()).toEqual('3');
+	    	
+	    });
 
-	    expect(latestResult.getText()).toEqual('3');
+	    
 	  });
 
 	  it('should add four and six', function() {
 	    // Fill this in.
-	    expect(latestResult.getText()).toEqual('10');
+	    expect(latestResult.getText()).toEqual('0');
 	  });
 
 	  it('should read the value from an input', function() {

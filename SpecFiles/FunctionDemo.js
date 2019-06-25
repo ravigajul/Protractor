@@ -12,9 +12,10 @@ describe('Function Demo', function() {
 	   
 	    Addition(1,2)
 	    // element(by.model('operator')).sendKeys(('*'));
-	    element(by.id('gobutton')).click();
-
-	    expect(element(by.binding('latest')).getText()).
-	        toEqual('3'); // This is wrong!
+	    element(by.id('gobutton')).click().then(function() {
+	    	browser.sleep(2000);
+	    	 expect(element(by.binding('latest')).getText()).
+		        toEqual('3'); // This is wrong!
+	    });
 	  });
 });
