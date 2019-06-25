@@ -1,13 +1,16 @@
 //Parameterization Demo
 
 describe('Parameterization Demo', function() {
+	
 	var calciHome=require("../DataFiles/CalculatorHome.js");
 	var testdata=require("../DataFiles/TestData.js");
 	beforeEach(function() {
 		console.log("Before Each");
+		browser.waitForAngularEnabled(true);
 		calciHome.goToHomePage();
 	});
   it('should add one and two', function() {
+	  
     console.log("Running the test");
     calciHome.firstInput.sendKeys(testdata.datadriver.firstValue);
     calciHome.secondInput.sendKeys(testdata.datadriver.secondValue);

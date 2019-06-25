@@ -12,6 +12,8 @@ describe('Switching Windows Demo', function() {
     	browser.switchTo().window(handles[1]);
     	browser.getTitle().then(function(title) {
     		console.log("After Switching " + title);
+    		browser.close();
+    		browser.switchTo().window(handles[0]);
     	})
     })
   });

@@ -1,6 +1,8 @@
 //Chain Locators to parse through history table
 describe('Chain Locators Demo', function() {
   it('should add one and two', function() {
+	  browser.waitForAngularEnabled(true);
+	  browser.sleep(2000);
     browser.get('http://juliemr.github.io/protractor-demo/');
     element(by.model('first')).sendKeys(1);
     element(by.model('second')).sendKeys(2);
