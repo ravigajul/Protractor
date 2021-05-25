@@ -1,35 +1,33 @@
-Jasmine--JavaScript Framework
-Mocha,Chai are other java script frameworks
+# Jasmine--JavaScript Framework
+# Mocha,Chai are other java script frameworks
 
 https://jasmine.github.io/
 https://jasmine.github.io/tutorials/your_first_suite
-
-Install NodeJs --https://nodejs.org/en/download/
-Install Protractor using npm --commands on this page https://www.protractortest.org/#/
-Install Webdriver using npm i selenium-webdriver --save-dev --Web Driver
-To Install latest IE Driver webdriver-manager update --ie
-	Setup
-	Use npm to install Protractor globally with:
+# Install Nodejs
+https://nodejs.org/en/download/
+# Install Protractor using npm
+commands on this page https://www.protractortest.org/#/
+# Install Webdriver
+ npm i selenium-webdriver --save-dev --Web Driver
+# Install latest IE Driver webdriver-manager update --ie Setup
+# Install Protractor globally with:
 	npm install -g protractor
-	This will install two command line tools, protractor and webdriver-manager. Try running protractor --version to make sure it's working.
-	The webdriver-manager is a helper tool to easily get an instance of a Selenium Server running. Use it to download the necessary binaries with:
+	This will install two command line tools,Â protractorÂ andÂ webdriver-manager. Try runningÂ protractor --versionÂ to make sure it's working.
+	TheÂ webdriver-managerÂ is a helper tool to easily get an instance of a Selenium Server running. Use it to download the necessary binaries with:
 	webdriver-manager update
 	Now start up a server with:
 	webdriver-manager start
-	This will start up a Selenium Server and will output a bunch of info logs. Your Protractor test will send requests to this server to control a local browser. You can see information about the status of the server at http://localhost:4444/wd/hub.
-	
-From <https://www.protractortest.org/#/> 
+	This will start up a Selenium Server and will output a bunch of info logs. Your Protractor test will send requests to this server to control a local browser. You can see information about the status of the server atÂ http://localhost:4444/wd/hub.
+	https://www.protractortest.org/#/
 
- 
+# Prepare Run configuration : 
+* Add protractor package from <<C:\Users\rgajul\AppData\Roaming\npm\node_modules>> to eclipse project
+* Install tern plugin using eclipse(only selected versions of eclipse supports tern check the versions on the link here)--https://marketplace.eclipse.org/content/tern-eclipse-ide/metrics#group-details
+* Right Click on Project-->Runconfigurations-->add cli.js from <<C:\Users\rgajul\AppData\Roaming\npm\node_modules\protractor\built>>
+* Enter Arguments --> Config.js
+* Run the config file and it should work.
 
-Prepare Run configuration : 
-Add protractor package from <<C:\Users\rgajul\AppData\Roaming\npm\node_modules>> to eclipse project
-Install tern plugin using eclipse(only selected versions of eclipse supports tern check the versions on the link here)--https://marketplace.eclipse.org/content/tern-eclipse-ide/metrics#group-details
-Right Click on Project-->Runconfigurations-->add cli.js from <<C:\Users\rgajul\AppData\Roaming\npm\node_modules\protractor\built>>
-Enter Arguments --> Config.js
-Run the config file and it should work.
-
-Auto Suggestions
+#Auto Suggestions
 
 Right click on project--> configure-->convert to intern project -->Select "Protractor"
 
@@ -41,7 +39,7 @@ Note : Eclipse will not show auto suggestions on entering . <<ctrl+space>> only 
 Type npm in cmd prompt to check if node js is already installed.
 Node -v for checking the version.
 
-Locators
+# Locators
 
 // Find an element using a css selector.
 by.css('.myclass')
@@ -58,11 +56,11 @@ by.binding('bindingname')
 
 From <https://www.protractortest.org/#/locators> 
 
-Read data from json files
+# Read data from json files
 
 Method 1
 Var element =require('../ElementLocators/Elements.json')
-Element.<<<json path>>
+element.<<<json path>>
 
 Method2
 Browser.params.testdata.<<jsonpath>>
@@ -72,9 +70,9 @@ Params:
 	testdata: require('../ElementLocators/Elements.json')
 }
 
-Html Reporter
+# Html Reporter
 
-1.Install protractor-jasmine2-html-reporter package
+## 1.Install protractor-jasmine2-html-reporter package
 
 npm install protractor-jasmine2-html-reporter --save-dev
 
@@ -82,7 +80,7 @@ From <https://www.npmjs.com/package/protractor-jasmine2-html-reporter>
 
 
 
-2.Add following details in protractor config file 
+## 2.Add following details in protractor config file 
 
 var Jasmine2HtmlReporter = require('protractor-jasmine2-html-reporter');
 exports.config = {
@@ -98,32 +96,31 @@ exports.config = {
 
 From <https://www.npmjs.com/package/protractor-jasmine2-html-reporter> 
 
-JavaScript is Asynchronouse
+# JavaScript is Asynchronouse
 
-Promise handling due to asynchronous nature of java script
+# Promise handling due to asynchronous nature of java script
 Element(by.id("id")).getText().then (function(text){
-
 Console.log(text);
 });
 
-All Locator
+# All Locator
 
 Elements.all(by.repeater("result in memory")) --returns a element finder array
 
-Chain Locator
+# Chain Locator
 
- element(by.repeater('result in memory')).element(by.css('td:nth-of-type(2)')).getText().then(function(text){
+ element(by.repeater('result in memory')).elemen74(by.css('td:nth-of-type(2)')).getText().then(function(text){
 		 console.log(text)
 	 });
 
-CSSContainingText Locator
+# CSSContainingText Locator
 
  element(by.cssContainingText("#exampleFormControlSelect1 > option","Male")).click().then(function() {
     	browser.sleep(2000);
     })
 
 
-Resolve Promise for all
+# Resolve Promise for all
 
  //Looping through each row in the table.
 
@@ -138,7 +135,7 @@ Resolve Promise for all
 				 });
 			 });
 
-.All Methods
+# .All Methods
 
 element.all(by.css('some-css')).first().element(by.tagName('tag-within-css'));
 element.all(by.css('some-css')).get(index).element(by.tagName('tag-within-css'));
@@ -147,21 +144,21 @@ element.all(by.css('some-css')).first().all(by.tagName('tag-within-css'));
 From <http://www.protractortest.org/#/locators> 
 
 
-Functions
+# Functions
 
 Reusable Functions should be outside it block and inside descript
 
-Switch to a new window
+# Switch to a new window
 
 Browser.getAllWindowHandles().then(function(handles){
 Browser.switchTo().Window(handles[1]);
 });
 
-To Test Non Angular Apps using Protractor
+# To Test Non Angular Apps using Protractor
 
 browser.waitForAngularEnabled(false);
 
-Java Script Object
+# Java Script Object
 
 Module.export = new car(); //making this availble in another call
 Require("./<<filename where above class  is present>>") //this is like import statement in java
@@ -169,16 +166,16 @@ Example
 Var obj=require("ClassCar.js");
 
 
-OnPrepare Function
+# OnPrepare Function
 
 This has to be created in config file and all statements in this function will be executed first before any line of code in spec files is executed. This is a global setting like before Each. BeforeEach is specific to a specfile, while onprepare is globally applicable to all spec files.
 
-Common statement that can be used are 
+# Common statement that can be used are 
 Reporting related -Jasmine-2-htmlreporter
-waitForAngularEnabled(false);
+waitForAngularEnabled(false); or browser.ignoresynchronization=true
 Launching and maximizing the browser() , etc.
 
-Package.json 
+# Package.json 
 
 This is like POM.xml which downloads the dependencies from maven.
 Package.json downloads the dependencies from npm (node package manager)
@@ -200,7 +197,29 @@ Or right click on run as npm install
     "UpdateAndStartWebdriverManager": "npm run webdriver-update && npm run webdriver-start "
   }
 
-
+Npm run will trigger all scripts above so to run webdriver-start use npm run webdriver-start
 Update the testrunner configuration to repoint to new cli.js as per the new download.
 Under package.json you will see above test scripts. 
 To run the config.js right click on RunConfig and RunAsConfiguration and select protractorRunner and run.
+
+# To Run a smoke Test
+
+Add this in package.json under scripts
+"SmokeTest": "./node_modules/.bin/protractor ./ConfigFiles/config.js --suite smoke "
+
+Add this in config.js.
+
+suite : {
+		smoke : [AddToCart.js,DataProviderDemo.js]
+	},
+	
+# Add project to Jenkins --refer Jenkins Page 
+
+
+Copy the proejct  folder to c:user/rgajul/.jenkins
+Use custom workspace
+From <http://localhost:8080/job/Protractor/configure> 
+${JENKINS_HOME}/AngularJS
+Add a build step-->window batch command
+Npm run protractor and comment the below line from config.js
+//	seleniumAddress : 'http://localhost:4444/wd/hub',
