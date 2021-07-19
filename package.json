@@ -3,15 +3,16 @@
 	"version": "1.0.0",
 	"description": "Jasmine--JavaScript Framework\r Mocha,Chai are other java script frameworks",
 	"dependencies": {
-		"protractor": "5.4.2",
+		"protractor": "7.0.0",
 		"jasmine-data-provider": "2.2.0",
-		"webdriver-manager": "12.1.7"
+		"webdriver-manager": "12.1.8"
 	},
 	"scripts": {
-		"webdriver:update": "./node_modules/.bin/webdriver-manager update",
-		"webdriver:start": "./node_modules/.bin/webdriver-manager start",
-		"webdriver:stop":  "./node_modules/.bin/webdriver-manager shutdown",
+		"wupdate": "./node_modules/.bin/webdriver-manager update",
+		"wstart": "./node_modules/.bin/webdriver-manager start",
+		"wstop": "./node_modules/.bin/webdriver-manager shutdown",
 		"protractor": "./node_modules/.bin/protractor ./ConfigFiles/config.js",
+		"test": "./node_modules/.bin/protractor ./ConfigFiles/TestConfig.js",
 		"SmokeTest": "./node_modules/.bin/protractor ./ConfigFiles/config.js --suite smoke ",
 		"RegressionTest": "./node_modules/.bin/protractor ./ConfigFiles/config.js --suite Regression",
 		"start": "npm run webdriver:update && npm run webdriver:start"
@@ -19,5 +20,8 @@
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/ravigajul/AngularJS.git"
+	},
+	"devDependencies": {
+		"protractor-jasmine2-html-reporter": "0.0.7"
 	}
 }
